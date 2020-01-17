@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +26,7 @@ export class HomePage {
 
     tipo:string="password";
 
-    seepass(){
+    see(){
    
       if(this.tipo=="password"){
         this.tipo="text";
@@ -36,58 +35,6 @@ export class HomePage {
       }
 
 
-    }
-
-    regis(){
-      this.mail="";
-      this.password="";
-
-       this.router.navigateByUrl('/register');
-    }
-
-/////////////////////////////////////////////////////
-
-async presentAlertPrompt() {
-  const alert = await this.alertController.create({
-    header: 'Forgot',
-    inputs: [
-      {
-        name: 'correo',
-        type: 'email',
-        placeholder: 'Email'
-      },
-   
-    
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        cssClass: 'secondary',
-        handler: () => {
-          console.log('Confirm Cancel');
-        }
-      }, {
-        text: 'Ok',
-        handler: (datos) => {
-
-          console.log(datos);
-        }
-      }
-    ]
-  });
-
-  await alert.present();
-}
-
-
-
-//////////////////////////////////////////////////
-
-
-
-    onClickForgot(){
-      console.log("forgot");
     }
 
 
@@ -109,11 +56,7 @@ this.bready=true;
         this.validatePass="";
      }
      if(this.mail !=="" && this.password!==""){
-
-      this.mail="";
-      this.password="";
-
-       this.router.navigateByUrl('/register');
+       this.router.navigateByUrl('/tabs');
      }
     }
 
@@ -163,6 +106,6 @@ this.bready=true;
     };
 
 
-  constructor(private router : Router,public alertController: AlertController) {}
+  constructor(private router : Router) {}
 
 }

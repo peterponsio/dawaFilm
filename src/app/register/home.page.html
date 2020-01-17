@@ -1,5 +1,19 @@
 <ion-header>
 
+   <ion-toolbar>
+
+      <ion-title>
+         DawaFilm
+      </ion-title>
+
+      <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
+
+   </ion-toolbar>
+
+
+
 </ion-header>
 
 <ion-content>
@@ -10,29 +24,23 @@
 
     <ion-item class="nombre">
         <ion-label position="floating">Mail</ion-label>
-        <ion-input  type="mail" [(ngModel)]="mail" (keyup)="checkUser()"></ion-input>
+        <ion-input type="mail" [(ngModel)]="mail" (keyup)="checkUser()"></ion-input>
      </ion-item>
      <h5>{{validateMail}}</h5>
 
      <ion-item class="pass">
         <ion-label position="floating">Password</ion-label>
         <ion-input type="{{tipo}}" [(ngModel)]="password" (keyup)="checkPass()"></ion-input>
-        <ion-icon  class="seepass" name="eye"  (click)="seepass()"></ion-icon>
-     </ion-item>
+        <ion-icon  class="seepass" name="eye"  (click)="see()"></ion-icon>
+
+      </ion-item>
      <h5>{{validatePass}}</h5>
 
      <ion-button class="pass" (click)="check()">
-       Send
+       SAVE
       </ion-button>
       
       
-      
-      
-        <ion-button class="forgot" size="small" (click)=" presentAlertPrompt()">Forgot your password</ion-button>
-      
-     
 
-        <ion-button class="register" size="small" (click)="regis()">Register</ion-button>
-  
 
 </ion-content>
