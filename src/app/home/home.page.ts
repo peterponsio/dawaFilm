@@ -1,3 +1,4 @@
+import { AuthServiceService } from './../services/auth-service.service';
 import { Component } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
@@ -110,10 +111,18 @@ this.bready=true;
      }
      if(this.mail !=="" && this.password!==""){
 
-      this.mail="";
+      
+      console.log("Entrando");
+      this.servicio.Login(this.mail,this.password)
+      .then((datos)=>{
+        console.log(datos); 
+       this.servicio.presentToast("esta bien")
+        this.mail="";
       this.password="";
-
-       this.router.navigateByUrl('/register');
+      }).catch(error=>{
+        console.log(error);
+        this.servicio.presentToast("esta mal")
+      });
      }
     }
 
@@ -163,6 +172,6 @@ this.bready=true;
     };
 
 
-  constructor(private router : Router,public alertController: AlertController) {}
+  constructor(private router : Router,public alertController: AlertController,private servicio:AuthServiceService) {}
 
 }

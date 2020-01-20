@@ -25,6 +25,8 @@ import { firebaseConfig } from 'src/environments/environment';
      IonicModule.forRoot(), 
      AppRoutingModule,
      AngularFireModule.initializeApp(firebaseConfig),
+     AngularFireAuthModule,
+    
     ],
   providers: [
     StatusBar,

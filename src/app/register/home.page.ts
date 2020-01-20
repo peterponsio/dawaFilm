@@ -1,3 +1,4 @@
+import { AuthServiceService } from './../services/auth-service.service';
 import { Component } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
@@ -25,6 +26,11 @@ export class HomePage {
     bready:boolean=false;
 
     tipo:string="password";
+
+ 
+
+   
+    
 
     see(){
    
@@ -56,7 +62,15 @@ this.bready=true;
         this.validatePass="";
      }
      if(this.mail !=="" && this.password!==""){
-       this.router.navigateByUrl('/tabs');
+        this.servicio.createUser(this.mail,this.password)
+        .then((datos)=>{
+          console.log(datos); 
+          this.servicio.presentToast("esta bien creao")
+        }).catch(error=>{
+          this.servicio.presentToast("esta mal creao fortaleza colorines")
+          console.log(error);
+        });
+       
      }
     }
 
@@ -106,6 +120,6 @@ this.bready=true;
     };
 
 
-  constructor(private router : Router) {}
+  constructor(private router : Router, private  servicio:AuthServiceService) {}
 
 }
