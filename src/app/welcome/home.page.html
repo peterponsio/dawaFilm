@@ -1,0 +1,21 @@
+<ion-header>
+
+   <ion-toolbar>
+
+      <h2>Welcome</h2>
+      <button *ngIf='show!=null'>Close Sesion</button>
+      <button *ngIf='show==null' (click)="entrar()">Login</button>
+
+   </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+
+
+     <h5>{{validateMail}}</h5>
+
+    
+
+</ion-content>

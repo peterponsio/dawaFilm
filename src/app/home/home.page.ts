@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { stringify } from '@angular/compiler/src/util';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-home',
@@ -116,9 +118,15 @@ this.bready=true;
       this.servicio.Login(this.mail,this.password)
       .then((datos)=>{
         console.log(datos); 
+       let user_data= {
+          email: this.mail,
+          pass: this.password
+        };
+      sessionStorage.setItem("user", JSON.stringify(user_data) );
+      console.log((sessionStorage.getItem("user")));
        this.servicio.presentToast("esta bien")
-        this.mail="";
-      this.password="";
+      //   this.mail="";
+      // this.password="";
       }).catch(error=>{
         console.log(error);
         this.servicio.presentToast("esta mal")

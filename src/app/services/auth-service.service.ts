@@ -1,7 +1,7 @@
 import { async } from '@angular/core/testing';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { error } from '@angular/compiler/src/util';
+import { error, stringify } from '@angular/compiler/src/util';
 import { ToastController } from '@ionic/angular';
 
 @Injectable({
@@ -27,6 +27,9 @@ export class AuthServiceService {
   async Login(mail:string,password:string){
     return this.afAuth.auth.signInWithEmailAndPassword(mail,password)
      .then((credential:firebase.auth.UserCredential)=>{
+
+ 
+      
       console.log(credential); 
           console.log(credential.user);
       
@@ -39,7 +42,7 @@ export class AuthServiceService {
 async presentToast(message:string) {
   const toast = await this.toastController.create({
     message: message,
-    duration: 2000
+    duration: 3000
   });
   toast.present();
 }
