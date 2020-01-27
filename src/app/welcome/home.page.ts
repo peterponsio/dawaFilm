@@ -1,10 +1,11 @@
 import { AuthServiceService } from './../services/auth-service.service';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
+
 import { AlertController } from '@ionic/angular';
 import { stringify, dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { parse } from 'querystring';
+import { RouterOutlet, Router, ActivationStart } from '@angular/router';
 import { database } from 'firebase';
 
 @Component({
@@ -13,6 +14,9 @@ import { database } from 'firebase';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+
+  
 
     show:string;
 
@@ -40,7 +44,7 @@ export class HomePage {
     }
     
 
-  constructor(private router : Router,public alertController: AlertController,private servicio:AuthServiceService) {}
+  constructor( private router: Router,public alertController: AlertController,private servicio:AuthServiceService) {}
 
 }
 

@@ -1,7 +1,6 @@
 export interface Users{
+    id:string;
     mail:string;
     password:string;
-    nombre:string;
-    age:number;
-    photo:string;
+  
 }
