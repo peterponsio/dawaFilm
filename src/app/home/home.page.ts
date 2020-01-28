@@ -115,6 +115,7 @@ this.bready=true;
 
       
       console.log("Entrando");
+    
       this.servicio.Login(this.mail,this.password)
       .then((datos)=>{
         console.log(datos); 
@@ -122,9 +123,15 @@ this.bready=true;
           email: this.mail,
           pass: this.password
         };
+
+        this.servicio.getUserData(this.mail);
+
       sessionStorage.setItem("user", JSON.stringify(user_data) );
       console.log((sessionStorage.getItem("user")));
        this.servicio.presentToast("esta bien")
+
+       this.router.navigateByUrl('list-films');
+       
       //   this.mail="";
       // this.password="";
       }).catch(error=>{

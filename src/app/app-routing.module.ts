@@ -6,6 +6,14 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   { path: 'register', loadChildren: () => import('./register/home.module').then( m => m.HomePageModule)},
   { path: 'welcome', loadChildren: () => import('./welcome/home.module').then( m => m.HomePageModule)},
+  {
+    path: 'add-film',
+    loadChildren: () => import('./add-film/add-film.module').then( m => m.AddFilmPageModule)
+  },
+  {
+    path: 'list-films',
+    loadChildren: () => import('./list-films/list-films.module').then( m => m.ListFilmsPageModule)
+  },
 ];
 
 @NgModule({
