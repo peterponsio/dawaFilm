@@ -64,7 +64,7 @@ this.bready=true;
      if(this.mail !=="" && this.password!==""){
         this.servicio.createUser(this.mail,this.password)
         .then((datos)=>{
-          console.log(datos); 
+         // console.log(datos); 
           this.servicio.presentToast("esta bien creao")
         }).catch(error=>{
           this.servicio.presentToast("esta mal creao fortaleza colorines")

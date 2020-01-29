@@ -8,13 +8,29 @@
 
 
     <ion-list>
-        <ion-item *ngFor="let i of filmes">
-          <h2> Name of the film: {{ i.name }}</h2>
-          <br>
-          <h2>Duration of the film {{ i.duration }} </h2>
-        </ion-item>
+    
+
+        <ion-item-sliding  *ngFor="let i of filmes">
+          
+        
+            <ion-item>
+               
+
+              <ion-label>Name: {{ i.name }}</ion-label>
+              <ion-label>Duration: {{ i.duration }} </ion-label>
+            </ion-item>
+        
+             <ion-item-options side="end" (click)="Edit(i.id)">
+                <ion-item-option color="dark" expandable>
+                    <ion-icon slot="center" name="more"></ion-icon>
+                  Edit
+                </ion-item-option>
+              </ion-item-options>
+
+          </ion-item-sliding>
+  
       
       </ion-list>
-
+    
 
 </ion-content>

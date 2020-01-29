@@ -22,6 +22,11 @@ export class ListFilmsPage implements OnInit {
             res=>{
                
                     this.filmes=res;
+
+                    res.forEach(element=>{
+              
+                    console.log(element);
+                    })
               
             })
        
@@ -32,6 +37,12 @@ export class ListFilmsPage implements OnInit {
 
    
 
+  }
+
+  Edit(id:string){
+    console.log(id);
+    this.services.presentAlertPrompt(id);
+    
   }
 
   
