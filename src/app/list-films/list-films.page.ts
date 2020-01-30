@@ -45,6 +45,10 @@ export class ListFilmsPage implements OnInit {
     
   }
 
+  addFilm(){
+    this.services.CreateFilm();
+  }
+
   
   
 

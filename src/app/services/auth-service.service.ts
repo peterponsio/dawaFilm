@@ -35,9 +35,16 @@ export class AuthServiceService {
      name:"",
      duration:0,
    }
+
+   addFilm:films={
+    id:"",
+    name:"",
+    duration:0,
+  }
+
    ids:string;
 
-  
+   idfilm:string;
 
 
    StorageUser(newUser){
@@ -157,6 +164,54 @@ async presentToast(message:string) {
   });
   toast.present();
 }
+
+////////////////////////////////////////////////////////////////////////////
+
+ 
+async CreateFilm() {
+     
+  this.idfilm=this.db.createId();
+ const alert = await this.alert.create({
+   header: 'Add Film',
+   inputs: [
+     {
+       name: 'name',
+       type: 'text',
+       placeholder: 'Film name'
+     },
+     {
+       name: 'duratio',
+       type: 'number',
+       placeholder: 'Duration'
+     },
+  
+   
+   ],
+   buttons: [
+     {
+       text: 'Cancel',
+       role: 'cancel',
+       cssClass: 'secondary',
+       handler: () => {
+         console.log('Confirm Cancel');
+       }
+     }, {
+       text: 'Ok',
+       handler: (datos) => {
+
+           console.log(datos);
+           this.addFilm.id=this.idfilm;
+           this.addFilm.name=datos.name;
+           this.addFilm.duration=datos.duratio;
+           this.db.doc("/films/"+this.addFilm.id ).set(this.addFilm);
+          }
+     }
+   ]
+ });
+
+ await alert.present();
+}
+
 
 
 }
