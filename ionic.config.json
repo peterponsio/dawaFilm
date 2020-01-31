@@ -1,5 +1,7 @@
 {
   "name": "dawaFilm",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -46,6 +46,8 @@ export class AuthServiceService {
 
    idfilm:string;
 
+   idel:string;
+
 
    StorageUser(newUser){
 
@@ -204,6 +206,32 @@ async CreateFilm() {
            this.addFilm.name=datos.name;
            this.addFilm.duration=datos.duratio;
            this.db.doc("/films/"+this.addFilm.id ).set(this.addFilm);
+          }
+     }
+   ]
+ });
+
+ await alert.present();
+}
+
+async Delete_Film(id:string) {
+     
+  this.idel=id;
+ const alert = await this.alert.create({
+   header: 'Add Film',
+   buttons: [
+     {
+       text: 'Cancel',
+       role: 'cancel',
+       cssClass: 'secondary',
+       handler: () => {
+         console.log('Confirm Cancel');
+       }
+     }, {
+       text: 'Ok',
+       handler: () => {
+
+           this.db.doc("/films/"+this.idel ).delete();
           }
      }
    ]

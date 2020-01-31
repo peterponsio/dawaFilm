@@ -45,6 +45,12 @@ export class ListFilmsPage implements OnInit {
     
   }
 
+  Delete(id:string){
+    console.log(id);
+    this.services.Delete_Film(id);
+    
+  }
+
   addFilm(){
     this.services.CreateFilm();
   }
